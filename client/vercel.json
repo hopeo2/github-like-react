@@ -7,7 +7,7 @@
     ],
     "headers": [
         {
-            "source": "/api/(.*)",
+            "source": "https://github-like-react-server.vercel.app/api/(.*)",
             "headers": [
                 {
                     "key": "Access-Control-Allow-Credentials",
