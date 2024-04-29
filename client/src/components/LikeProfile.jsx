@@ -9,7 +9,7 @@ const LikeProfile = ({ userProfile }) => {
 
     const handleLikeProfile = async () => {
         try {
-            const res = await fetch(`/api/users/like/${userProfile.login}`, {
+            const res = await fetch(`https://github-like-react-server.vercel.app/api/users/like/${userProfile.login}`, {
                 method: "POST",
                 credentials: "include",
             });

@@ -16,7 +16,7 @@ export const AuthContextProvider = ({ children }) => {
 		const checkUserLoggedIn = async () => {
 			setLoading(true);
 			try {
-				const res = await fetch("/api/auth/check", { credentials: "include" });
+				const res = await fetch("https://github-like-react-server.vercel.app/api/auth/check", { credentials: "include" });
 				const data = await res.json();
                 
 				setAuthUser(data.user); // null or authenticated user object
