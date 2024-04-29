@@ -10,6 +10,7 @@ const LikesPage = () => {
             try {
                 const res = await fetch("https://github-like-react-server.vercel.app/api/users/likes", {
                     credentials: "include",
+                    mode: "no-cors"
                 });
                 const data = await res.json();
                 if (data.error) throw new Error(data.error);

@@ -10,6 +10,7 @@ const Logout = () => {
         try {
             const res = await fetch("https://github-like-react-server.vercel.app/api/auth/logout", {
                 credentials: "include",
+                mode: "no-cors"
             });
             const data = await res.json();
 

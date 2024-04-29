@@ -12,6 +12,7 @@ const LikeProfile = ({ userProfile }) => {
             const res = await fetch(`https://github-like-react-server.vercel.app/api/users/like/${userProfile.login}`, {
                 method: "POST",
                 credentials: "include",
+                mode: "no-cors"
             });
             const data = await res.json();
 
