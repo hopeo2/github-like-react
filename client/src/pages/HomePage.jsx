@@ -19,7 +19,7 @@ const HomePage = () => {
     const getUserProfileAndRepos = useCallback(async (username = authUser ? authUser.username : "hopeo2") => {
         setLoading(true);
         try {
-            const res = await fetch(`/api/users/profile/${username}`);
+            const res = await fetch(`https://github-like-react-server.vercel.app/api/users/profile/${username}`);
             const { repos, userProfile } = await res.json();
 
             repos.sort(
