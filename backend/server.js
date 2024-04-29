@@ -25,7 +25,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors())
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get("/", async (req, res) => {
+    res.send("hello vercel !");
+});
 
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
