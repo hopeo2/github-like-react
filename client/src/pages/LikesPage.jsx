@@ -8,7 +8,7 @@ const LikesPage = () => {
     useEffect(() => {
         const getLikes = async () => {
             try {
-                const res = await fetch("https://github-like-react-server.vercel.app/api/users/likes", {
+                const res = await fetch("/api/users/likes", {
                     credentials: "include",
                     mode: "no-cors"
                 });

@@ -1,3 +1,3 @@
 export const handleLoginWithGithub = () => {
-	window.open("https://github-like-react-server.vercel.app/api/auth/github", "_self");
+	window.open("/api/auth/github", "_self");
 };

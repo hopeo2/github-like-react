@@ -12,11 +12,11 @@ const ExplorePage = () => {
         setLoading(true);
         setRepos([]);
         try {
-            const res = await fetch("https://github-like-react-server.vercel.app/api/explore/repos/" + language);
+            const res = await fetch(`https://api.github.com/search/repositories?q={language}:${language}&sort=stars&order=desc&per_page=10`);
             
-            const { repos } = await res.json();
+            const repos = await res.json();
 
-            setRepos(repos);
+            setRepos(repos.items);
 
             setSelectedLanguage(language);
         } catch (error) {

@@ -19,16 +19,20 @@ const HomePage = () => {
     const getUserProfileAndRepos = useCallback(async (username = authUser ? authUser.username : "hopeo2") => {
         setLoading(true);
         try {
-            const res = await fetch(`https://github-like-react-server.vercel.app/api/users/profile/${username}`);
-            const { repos, userProfile } = await res.json();
+            const res = await fetch(`https://api.github.com/users/${username}`);
+            const userProfile = await res.json();
+            setUserProfile(userProfile);
 
+            const repoRes = await fetch(userProfile.repos_url);
+            const repos = await repoRes.json();
+            setRepos(repos);
+            
             repos.sort(
                 (a, b) => new Date(b.created_at) - new Date(a.created_at)
             ); //descending, recent first
             setRepos(repos);
-            setUserProfile(userProfile);
 
-            return { userProfile, repos };
+            return {userProfile, repos}
         } catch (error) {
             toast.error(error.message);
             toast.error("internal server 500 username Not found!!");
